@@ -18,8 +18,6 @@ def bubble_sort(array)
   sorted_array
 end
 
-array = [4,3,78,2,0,2]
-
 # Expect: [0,2,2,3,4,78]
 p bubble_sort([4,3,78,2,0,2])
 
