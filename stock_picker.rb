@@ -3,17 +3,16 @@ def stock_picker(stock_prices)
   max_profit = 0
   result = [-1, -1]
 
-  stock_prices.each_with_index do |price, curr_day|
-    if price < stock_prices[buy_day]
+  stock_prices.each_index do |curr_day|
+    curr_profit = stock_prices[curr_day] - stock_prices[buy_day]
+    
+    if curr_profit < 0
       buy_day = curr_day
-    else
-      profit = price - stock_prices[buy_day]
-      if profit > max_profit
-        max_profit = profit
-        result[0] = buy_day
-        result[1] = curr_day
-      end
+    elsif max_profit < curr_profit
+      max_profit = curr_profit
+      result = [buy_day, curr_day]
     end
+
   end
 
   result
