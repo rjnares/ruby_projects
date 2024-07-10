@@ -1,18 +1,17 @@
 def bubble_sort(array)
   sorted_array = Array.new(array)
 
-  (sorted_array.length - 1).downto(0) do |max_index|
-    curr_max_index = 0
-    
-    for i in 1..max_index
-      if sorted_array[curr_max_index] < sorted_array[i]
-        curr_max_index = i
+  for i in 0...sorted_array.length
+    sorted = true
+
+    for j in 0...(sorted_array.length - 1 - i)
+      if sorted_array[j] > sorted_array[j + 1]
+        sorted = false
+        sorted_array[j], sorted_array[j + 1] = sorted_array[j + 1], sorted_array[j]
       end
     end
 
-    curr_max = sorted_array[curr_max_index]
-    sorted_array[curr_max_index] = sorted_array[max_index]
-    sorted_array[max_index] = curr_max
+    break if sorted
   end
 
   sorted_array
