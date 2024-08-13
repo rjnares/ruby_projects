@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def caesar_cipher(string, shift_factor)
   shifted_codepoints = string.codepoints.map do |codepoint|
     if codepoint.between?(65, 90) || codepoint.between?(97, 122)
@@ -7,8 +9,8 @@ def caesar_cipher(string, shift_factor)
       codepoint
     end
   end
-  
-  p shifted_codepoints.map { |codepoint| codepoint.chr }.join
+
+  p shifted_codepoints.map(&:chr).join
 end
 
-caesar_cipher("What a string!", 5)
+caesar_cipher('What a string!', 5)
